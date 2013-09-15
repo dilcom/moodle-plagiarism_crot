@@ -65,7 +65,7 @@ class plagiarism_plugin_crot extends plagiarism_plugin {
                     $output .= '';// if there is no record in plagiarism_crot_documents about this file then nothing to show
                 }
                 else {
-                    $sql_query = "SELECT max(number_of_same_hashes) as max FROM {$CFG->prefix}plagiarism_crot_submission_pair WHERE submission_a_id ='$crot_doc_rec->id' OR  submission_b_id = '$crot_doc_rec->id'";
+                    $sql_query = "SELECT max(number_of_same_hashes) as max FROM {$CFG->prefix}plagiarism_crot_sub_pair WHERE submission_a_id ='$crot_doc_rec->id' OR  submission_b_id = '$crot_doc_rec->id'";
                     if (!$similarity = $DB->get_record_sql($sql_query)) {// get maximum number of same hashes for the current document
                         $output .= '<br><b>'.get_string('no_similarities','plagiarism_crot').'</b>';
                     }
@@ -94,7 +94,7 @@ class plagiarism_plugin_crot extends plagiarism_plugin {
                       $output .= '';// if there is no record in plagiarism_crot_documents about this file then nothing to show
                   }
                   else {
-                      $sql_query = "SELECT max(number_of_same_hashes) as max FROM {$CFG->prefix}plagiarism_crot_submission_pair WHERE submission_a_id ='$crot_doc_rec->id' OR  submission_b_id = '$crot_doc_rec->id'";
+                      $sql_query = "SELECT max(number_of_same_hashes) as max FROM {$CFG->prefix}plagiarism_crot_sub_pair WHERE submission_a_id ='$crot_doc_rec->id' OR  submission_b_id = '$crot_doc_rec->id'";
                       if (!$similarity = $DB->get_record_sql($sql_query)) {// get maximum number of same hashes for the current document
                           $output .= '<br><b>'.get_string('no_similarities','plagiarism_crot').'</b>';
                       }
@@ -165,7 +165,11 @@ class plagiarism_plugin_crot extends plagiarism_plugin {
             $mform->setDefault('crot_local', '1');
             $mform->addElement('select', 'crot_global', get_string("compareinternet", "plagiarism_crot"), $ynoptions);
             $mform->disabledIf('crot_global', 'crot_use', 'eq', 0);
-            
+            //point to add new option
+            // I added an option to search via SOAP service
+            $mform->addElement('select', 'crot_shingle', get_string("compareviasoapservice", "plagiarism_crot"), $ynoptions);
+            $mform->disabledIf('crot_shingle', 'crot_use', 'eq', 0);
+            $mform->setDefault('crot_shingle', '1');
             foreach ($plagiarismelements as $element) {
                 if (isset($plagiarismvalues[$element])) {
                     $mform->setDefault($element, $plagiarismvalues[$element]);
@@ -220,7 +224,7 @@ class plagiarism_plugin_crot extends plagiarism_plugin {
         
     }
     public function config_options() {
-        return array('crot_use','crot_local', 'crot_global');
+        return array('crot_use','crot_local', 'crot_global', 'crot_shingle');
     }
 }
 

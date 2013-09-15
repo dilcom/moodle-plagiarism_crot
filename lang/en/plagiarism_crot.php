@@ -24,6 +24,9 @@
 $string['pluginname'] = 'Crot Plagiarism Checker';
 $string['studentdisclosuredefault']  ='All files uploaded will be submitted to a plagiarism detection service';
 // strings used for help information
+$string['compareviasoapservice'] = 'Compare files with exampls on SOAP server';
+$string['soap_service_location'] = 'WSDL location';
+$string['soap_service_location_help'] = 'Please choose location of a special wsdl file to use SOAP service.';
 $string['studentdisclosure'] = 'Student Disclosure';
 $string['studentdisclosure_help'] = 'This text will be displayed to all students on the file upload page.';
 $string['grammarsize'] = 'Grammar size';

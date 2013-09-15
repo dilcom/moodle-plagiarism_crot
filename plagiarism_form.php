@@ -63,6 +63,10 @@ class plagiarism_setup_form extends moodleform {
         $mform->setDefault('crot_global_search_query_size', '7');
         $mform->addRule('crot_global_search_query_size', null, 'numeric', null, 'client');
         
+        $mform->addElement('text', 'crot_soap_service_location', get_string('soap_service_location', 'plagiarism_crot'));
+        $mform->addHelpButton('crot_soap_service_location', 'soap_service_location', 'plagiarism_crot');
+        $mform->setDefault('crot_soap_service_location', 'http://localhost:9999/?wsdl');
+
         $mform->addElement('text', 'crot_percentage_of_search_queries', get_string('percentage_of_search_queries', 'plagiarism_crot'));
         $mform->addHelpButton('crot_percentage_of_search_queries', 'percentageofsearchqueries', 'plagiarism_crot');
         $mform->setDefault('crot_percentage_of_search_queries', '40');

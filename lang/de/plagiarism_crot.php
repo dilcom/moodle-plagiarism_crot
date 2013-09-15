@@ -1,6 +1,7 @@
 <?php $this->cache['de']['plagiarism_crot'] = array (
   'pluginname' => 'Crot Plagiatsprüfer',
   'studentdisclosuredefault' => 'Alle hochgeladenen Dateien werden an einen Dienst zur Plagiatsprüfung weitergeleitet.',
+  'compareviasoapservice'=>'Send submitted files to a SOAP service to check.',
   'studentdisclosure' => 'Hinweis für Teilnehmer',
   'studentdisclosure_help' => 'Dieser Text wird für alle Teilnehmer im Aufgabenbereich angezeigt.',
   'grammarsize' => 'Grammatikgröße',

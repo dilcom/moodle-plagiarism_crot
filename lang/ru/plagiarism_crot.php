@@ -23,6 +23,7 @@
 
 $string['studentdisclosuredefault']  = 'Все загруженные файлы будут отправлены в модуль проверки на плагиат';
 // strings used for help information
+$string['compareviasoapservice'] = 'Использовать SOAP сервис при поиске плагиата в работах';
 $string['studentdisclosure'] = 'Сообщение студентам';
 $string['studentdisclosure_help'] = 'Этот текст будет отображаться у всех студентов на странице загрузки файла';
 $string['grammarsize'] = 'Размер грамматики';
